@@ -33,4 +33,8 @@ export abstract class BasePipeline {
   static async run(...args: any): Promise<any> {
     throw new Error("Not implemented");
   }
+
+  static async warmup(modelOptions?: RunModelOptions): Promise<void> {
+    await this.getInstance<typeof this.task>(modelOptions);
+  }
 }
