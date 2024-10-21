@@ -20,7 +20,11 @@ export abstract class BasePipeline {
     options,
   }: RunModelOptions = DEFAULT_RUN_OPTIONS) {
     if (!this.pipe) {
-      this.pipe = pipeline(this.task, model, options);
+      if (Object.keys(options ?? {}).length) {
+        this.pipe = pipeline(this.task, model, options);
+      } else {
+        this.pipe = pipeline(this.task, model);
+      }
     }
 
     return this.pipe as Promise<AllTasks[TASK_TYPE]>;
@@ -28,5 +32,9 @@ export abstract class BasePipeline {
 
   static async run(...args: any): Promise<any> {
     throw new Error("Not implemented");
+  }
+
+  static async warmup(modelOptions?: RunModelOptions): Promise<void> {
+    await this.getInstance<typeof this.task>(modelOptions);
   }
 }
