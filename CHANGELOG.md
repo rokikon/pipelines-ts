@@ -1,5 +1,11 @@
 # @rokikon/pipeline
 
+## 1.1.1
+
+### Patch Changes
+
+- 9710f48: chore: missing Github link in package.json
+
 ## 1.1.0
 
 ### Minor Changes
