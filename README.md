@@ -112,4 +112,3 @@ https://github.com/rokikon/pipelines-ts
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
