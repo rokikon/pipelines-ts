@@ -1,5 +1,11 @@
 # @rokikon/pipeline
 
+## 1.1.2
+
+### Patch Changes
+
+- 86c7774: fix: adding @huggingface/transformers to peerDeps
+
 ## 1.1.1
 
 ### Patch Changes
