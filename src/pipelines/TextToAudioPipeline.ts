@@ -11,11 +11,11 @@ class TextToAudioPipeline extends BasePipeline {
 
   static async run(
     texts: string | string[],
-    audioOptions: TextToAudioPipelineOptions,
     modelOptions?: RunModelOptions,
+    pipelineOptions?: TextToAudioPipelineOptions
   ) {
     const textToAudio = await this.getInstance<TASK>(modelOptions);
-    return textToAudio(texts, audioOptions);
+    return textToAudio(texts, pipelineOptions);
   }
 }
 

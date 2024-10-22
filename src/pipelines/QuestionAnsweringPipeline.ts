@@ -1,3 +1,5 @@
+import { QuestionAnsweringPipelineOptions } from "@huggingface/transformers";
+
 import { BasePipeline } from "./_BasePipeline";
 import { RunModelOptions } from "./utils/hub.types";
 
@@ -11,9 +13,10 @@ class QuestionAnsweringPipeline extends BasePipeline {
     question: string | string[],
     context: string | string[],
     modelOptions?: RunModelOptions,
+    pipelineOptions?: QuestionAnsweringPipelineOptions
   ) {
     const questionAnswering = await this.getInstance<TASK>(modelOptions);
-    return questionAnswering(question, context);
+    return questionAnswering(question, context, pipelineOptions);
   }
 }
 

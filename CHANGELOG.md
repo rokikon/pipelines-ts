@@ -1,5 +1,11 @@
 # @rokikon/pipeline
 
+## 1.2.0
+
+### Minor Changes
+
+- cc1d058: feat: pipeline options can be provisioned to model
+
 ## 1.1.2
 
 ### Patch Changes

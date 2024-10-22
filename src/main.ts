@@ -21,7 +21,7 @@ export {
   TokenClassificationPipeline,
   TranslationPipeline,
   ZeroShotAudioClassificationPipeline,
-  ZeroShotClassifierPipeline,
+  ZeroShotClassificationPipeline,
   ZeroShotImageClassificationPipeline,
   ZeroShotObjectDetectionPipeline,
 } from "./pipelines";

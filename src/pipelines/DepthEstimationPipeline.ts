@@ -9,9 +9,12 @@ type TASK = typeof taskKey;
 class DepthEstimationPipeline extends BasePipeline {
   static task = taskKey;
 
-  static async run(image: ImagePipelineInputs, modelOptions?: RunModelOptions) {
+  static async run(
+    images: ImagePipelineInputs,
+    modelOptions?: RunModelOptions
+  ) {
     const depthEstimation = await this.getInstance<TASK>(modelOptions);
-    return depthEstimation(image);
+    return depthEstimation(images);
   }
 }
 

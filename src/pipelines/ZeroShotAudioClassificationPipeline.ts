@@ -1,4 +1,7 @@
-import { AudioPipelineInputs } from "@huggingface/transformers";
+import {
+  AudioPipelineInputs,
+  ZeroShotAudioClassificationPipelineOptions,
+} from "@huggingface/transformers";
 
 import { BasePipeline } from "./_BasePipeline";
 import { RunModelOptions } from "./utils/hub.types";
@@ -13,9 +16,10 @@ class ZeroShotAudioClassificationPipeline extends BasePipeline {
     audio: AudioPipelineInputs,
     labels: string[],
     modelOptions?: RunModelOptions,
+    pipelineOptions?: ZeroShotAudioClassificationPipelineOptions
   ) {
     const zeroShotAudioClassifier = await this.getInstance<TASK>(modelOptions);
-    return zeroShotAudioClassifier(audio, labels);
+    return zeroShotAudioClassifier(audio, labels, pipelineOptions);
   }
 }
 

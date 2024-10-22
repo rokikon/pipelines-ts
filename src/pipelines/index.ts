@@ -20,7 +20,7 @@ import TextGenerationPipeline from "./TextGenerationPipeline";
 import TokenClassificationPipeline from "./TokenClassificationPipeline";
 import TranslationPipeline from "./TranslationPipeline";
 import ZeroShotAudioClassificationPipeline from "./ZeroShotAudioClassificationPipeline";
-import ZeroShotClassifierPipeline from "./ZeroShotClassifierPipeline";
+import ZeroShotClassificationPipeline from "./ZeroShotClassificationPipeline";
 import ZeroShotImageClassificationPipeline from "./ZeroShotImageClassificationPipeline";
 import ZeroShotObjectDetectionPipeline from "./ZeroShotObjectDetectionPipeline";
 
@@ -47,7 +47,7 @@ export {
   TokenClassificationPipeline,
   TranslationPipeline,
   ZeroShotAudioClassificationPipeline,
-  ZeroShotClassifierPipeline,
+  ZeroShotClassificationPipeline,
   ZeroShotImageClassificationPipeline,
   ZeroShotObjectDetectionPipeline,
 };
