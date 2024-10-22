@@ -1,4 +1,7 @@
-import { AudioPipelineInputs } from "@huggingface/transformers";
+import {
+  AudioClassificationPipelineOptions,
+  AudioPipelineInputs,
+} from "@huggingface/transformers";
 
 import { BasePipeline } from "./_BasePipeline";
 import { RunModelOptions } from "./utils/hub.types";
@@ -9,9 +12,13 @@ type TASK = typeof taskKey;
 class AudioClassificationPipeline extends BasePipeline {
   static task = taskKey;
 
-  static async run(audio: AudioPipelineInputs, modelOptions?: RunModelOptions) {
+  static async run(
+    audio: AudioPipelineInputs,
+    modelOptions?: RunModelOptions,
+    pipelineOptions?: AudioClassificationPipelineOptions
+  ) {
     const audioClassifier = await this.getInstance<TASK>(modelOptions);
-    return audioClassifier(audio);
+    return audioClassifier(audio, pipelineOptions);
   }
 }
 

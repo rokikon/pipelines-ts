@@ -1,4 +1,4 @@
-import { Chat } from "@huggingface/transformers";
+import { Chat, TextGenerationConfig } from "@huggingface/transformers";
 
 import { BasePipeline } from "./_BasePipeline";
 import { RunModelOptions } from "./utils/hub.types";
@@ -12,9 +12,10 @@ class TextGenerationPipeline extends BasePipeline {
   static async run(
     texts: string | string[] | Chat | Chat[],
     modelOptions?: RunModelOptions,
+    pipelineOptions?: TextGenerationConfig
   ) {
     const textGeneration = await this.getInstance<TASK>(modelOptions);
-    return textGeneration(texts);
+    return textGeneration(texts, pipelineOptions);
   }
 }
 

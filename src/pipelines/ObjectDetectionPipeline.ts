@@ -1,4 +1,7 @@
-import { ImagePipelineInputs } from "@huggingface/transformers";
+import {
+  ImagePipelineInputs,
+  ObjectDetectionPipelineOptions,
+} from "@huggingface/transformers";
 
 import { BasePipeline } from "./_BasePipeline";
 import { RunModelOptions } from "./utils/hub.types";
@@ -9,9 +12,13 @@ type TASK = typeof taskKey;
 class ObjectDetectionPipeline extends BasePipeline {
   static task = taskKey;
 
-  static async run(texts: ImagePipelineInputs, modelOptions?: RunModelOptions) {
+  static async run(
+    texts: ImagePipelineInputs,
+    modelOptions?: RunModelOptions,
+    pipelineOptions?: ObjectDetectionPipelineOptions
+  ) {
     const objectDetection = await this.getInstance<TASK>(modelOptions);
-    return objectDetection(texts);
+    return objectDetection(texts, pipelineOptions);
   }
 }
 

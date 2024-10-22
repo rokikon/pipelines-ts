@@ -1,3 +1,5 @@
+import { GenerationConfig } from "@huggingface/transformers/types/generation/configuration_utils";
+
 export type ModelOptions = {
   subfolder?: string | undefined;
   model_file_name?: string | undefined;
@@ -21,3 +23,5 @@ export type RunModelOptions = {
   model: string;
   options: ModelOptions;
 };
+
+export type GenerationConfigType = Partial<GenerationConfig>;

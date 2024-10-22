@@ -1,4 +1,7 @@
-import { ImagePipelineInputs } from "@huggingface/transformers";
+import {
+  ImagePipelineInputs,
+  ZeroShotObjectDetectionPipelineOptions,
+} from "@huggingface/transformers";
 
 import { BasePipeline } from "./_BasePipeline";
 import { RunModelOptions } from "./utils/hub.types";
@@ -13,9 +16,10 @@ class ZeroShotObjectDetectionPipeline extends BasePipeline {
     image: ImagePipelineInputs,
     labels: string[],
     modelOptions?: RunModelOptions,
+    pipelineOptions?: ZeroShotObjectDetectionPipelineOptions
   ) {
     const objectDetection = await this.getInstance<TASK>(modelOptions);
-    return objectDetection(image, labels);
+    return objectDetection(image, labels, pipelineOptions);
   }
 }
 

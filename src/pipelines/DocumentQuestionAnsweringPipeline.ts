@@ -1,7 +1,7 @@
 import { ImageInput } from "@huggingface/transformers";
 
 import { BasePipeline } from "./_BasePipeline";
-import { RunModelOptions } from "./utils/hub.types";
+import { GenerationConfigType, RunModelOptions } from "./utils/hub.types";
 
 const taskKey = "document-question-answering" as const;
 type TASK = typeof taskKey;
@@ -13,9 +13,10 @@ class DocumentQuestionAnsweringPipeline extends BasePipeline {
     image: ImageInput,
     question: string,
     modelOptions?: RunModelOptions,
+    pipelineOptions?: GenerationConfigType
   ) {
     const documentQuestion = await this.getInstance<TASK>(modelOptions);
-    return documentQuestion(image, question);
+    return documentQuestion(image, question, pipelineOptions);
   }
 }
 

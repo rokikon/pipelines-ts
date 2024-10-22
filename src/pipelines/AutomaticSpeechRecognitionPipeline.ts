@@ -1,4 +1,7 @@
-import { AudioPipelineInputs } from "@huggingface/transformers";
+import {
+  AudioPipelineInputs,
+  AutomaticSpeechRecognitionConfig,
+} from "@huggingface/transformers";
 
 import { BasePipeline } from "./_BasePipeline";
 import { RunModelOptions } from "./utils/hub.types";
@@ -9,9 +12,13 @@ type TASK = typeof taskKey;
 class AutomaticSpeechRecognitionPipeline extends BasePipeline {
   static task = taskKey;
 
-  static async run(audio: AudioPipelineInputs, modelOptions?: RunModelOptions) {
+  static async run(
+    audio: AudioPipelineInputs,
+    modelOptions?: RunModelOptions,
+    pipelineOptions?: Partial<AutomaticSpeechRecognitionConfig>
+  ) {
     const speechRecogintion = await this.getInstance<TASK>(modelOptions);
-    return speechRecogintion(audio);
+    return speechRecogintion(audio, pipelineOptions);
   }
 }
 

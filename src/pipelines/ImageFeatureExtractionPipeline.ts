@@ -1,4 +1,7 @@
-import { ImagePipelineInputs } from "@huggingface/transformers";
+import {
+  ImageFeatureExtractionPipelineOptions,
+  ImagePipelineInputs,
+} from "@huggingface/transformers";
 
 import { BasePipeline } from "./_BasePipeline";
 import { RunModelOptions } from "./utils/hub.types";
@@ -9,9 +12,13 @@ type TASK = typeof taskKey;
 class ImageFeatureExtractionPipeline extends BasePipeline {
   static task = taskKey;
 
-  static async run(image: ImagePipelineInputs, modelOptions?: RunModelOptions) {
+  static async run(
+    image: ImagePipelineInputs,
+    modelOptions?: RunModelOptions,
+    pipelineOptions?: ImageFeatureExtractionPipelineOptions
+  ) {
     const imageFeatureExctraction = await this.getInstance<TASK>(modelOptions);
-    return imageFeatureExctraction(image);
+    return imageFeatureExctraction(image, pipelineOptions);
   }
 }
 
