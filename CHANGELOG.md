@@ -1,5 +1,11 @@
 # @rokikon/pipeline
 
+## 1.2.1
+
+### Patch Changes
+
+- db31b97: fix: removing temp ModelOptions. Now use PretrainedModelOptions instead
+
 ## 1.2.0
 
 ### Minor Changes
